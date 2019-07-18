@@ -125,7 +125,7 @@ func randInt(min, max int) int {
 func main() {
 	// 接收命令行参数
 	// 接收参数名 默认值100 参数说明
-	total := flag.Int("total", 100, "logs rows to create")
+	total := flag.Int("total", 10000, "logs rows to create")
 	filePath := flag.String("filePath", "./dig.log", "log file path")
 	// 解析flag接收参数,使接收命令行参数生效
 	flag.Parse()
@@ -149,6 +149,4 @@ func main() {
 	fd.Write([]byte(logStr))
 	fd.Close()
 	fmt.Println("done :)")
-
-	time.Sleep()
 }
