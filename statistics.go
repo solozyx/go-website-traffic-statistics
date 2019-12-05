@@ -111,7 +111,7 @@ func initRedis() (err error) {
 		}()
 	}
 
-	defer conn.Close()
+	// defer conn.Close()
 	return
 }
 
@@ -166,7 +166,9 @@ func main() {
 	go dataStorage(storageChannel)
 
 	// 防止main协程退出导致上面子协程退出
-	time.Sleep(1000 * time.Second)
+	for{
+		time.Sleep(1 * time.Second)
+	}
 }
 
 func dataStorage(storageChannel chan storageBlock) {
